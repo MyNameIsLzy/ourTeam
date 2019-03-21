@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/ot-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ot-courseInfo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ot-manager" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ot-manager/ot-manager-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ot-manager/ot-manager-pojo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ot-parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ot-portal" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ot-portal-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ot-portal/ot-portal-interface" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ot-portal/ot-portal-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ot-search" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ot-search/ot-search-interface" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ot-search/ot-search-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ot-sso" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ot-sso/ot-sso-interface" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ot-sso/ot-sso-service" charset="UTF-8" />
+  </component>
+</project>

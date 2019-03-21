@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="ot-manager:war exploded">
+    <output-path>$PROJECT_DIR$/ot-manager/target/ot-manager</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ot-manager" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/ot-manager/target/ot-manager/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="ot-manager/web/Web" />
+    </root>
+  </artifact>
+</component>

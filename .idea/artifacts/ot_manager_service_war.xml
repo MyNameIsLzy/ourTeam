@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ot-manager-service:war">
+    <output-path>$PROJECT_DIR$/ot-manager/ot-manager-service/target</output-path>
+    <root id="archive" name="ot-manager-service.war">
+      <element id="artifact" artifact-name="ot-manager-service:war exploded" />
+    </root>
+  </artifact>
+</component>

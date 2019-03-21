@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ot-common" />
+        <module name="ot-courseInfo" />
+        <module name="ot-manager-dao" />
+        <module name="ot-manager-pojo" />
+        <module name="ot-portal-interface" />
+        <module name="ot-portal-service" />
+        <module name="ot-portal-web" />
+        <module name="ot-search-interface" />
+        <module name="ot-search-service" />
+        <module name="ot-sso-interface" />
+        <module name="ot-sso-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="or-sso" target="1.7" />
+      <module name="ot-common" target="1.7" />
+      <module name="ot-courseInfo" target="1.7" />
+      <module name="ot-makepojo" target="1.7" />
+      <module name="ot-manager" target="1.7" />
+      <module name="ot-manager-dao" target="1.7" />
+      <module name="ot-manager-interface" target="1.7" />
+      <module name="ot-manager-pojo" target="1.7" />
+      <module name="ot-manager-service" target="1.7" />
+      <module name="ot-manager-web" target="1.7" />
+      <module name="ot-parent" target="1.7" />
+      <module name="ot-portal" target="1.7" />
+      <module name="ot-portal-interface" target="1.7" />
+      <module name="ot-portal-service" target="1.7" />
+      <module name="ot-portal-web" target="1.7" />
+      <module name="ot-search" target="1.7" />
+      <module name="ot-search-interface" target="1.7" />
+      <module name="ot-search-service" target="1.7" />
+      <module name="ot-sso" target="1.7" />
+      <module name="ot-sso-interface" target="1.7" />
+      <module name="ot-sso-service" target="1.7" />
+      <module name="ot-sso-web" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/or-sso/src/test/java" />
+    <file type="web" url="file://$PROJECT_DIR$/ot-manager" />
+    <file type="web" url="file://$PROJECT_DIR$/ot-manager-web" />
+    <file type="web" url="file://$PROJECT_DIR$/ot-parent/ot-portal" />
+    <file type="web" url="file://$PROJECT_DIR$/ot-portal-web" />
+    <file type="web" url="file://$PROJECT_DIR$/ot-portal/ot-portal-service" />
+    <file type="web" url="file://$PROJECT_DIR$/ot-search" />
+    <file type="web" url="file://$PROJECT_DIR$/ot-sso-web" />
+    <file type="web" url="file://$PROJECT_DIR$/ot-sso/ot-sso-service" />
+    <file type="web" url="file://$PROJECT_DIR$/ot-sso/ot-sso-service/src/main/java" />
+    <file type="web" url="file://$PROJECT_DIR$/ot-sso/ot-sso-service/src/main/resources" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/ot-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/ot-manager/pom.xml" />
+        <option value="$PROJECT_DIR$/ot-portal/pom.xml" />
+        <option value="$PROJECT_DIR$/ot-common/pom.xml" />
+        <option value="$PROJECT_DIR$/ot-portal-web/pom.xml" />
+        <option value="$PROJECT_DIR$/or-sso/pom.xml" />
+        <option value="$PROJECT_DIR$/or-sso/or-sso-service/pom.xml" />
+        <option value="$PROJECT_DIR$/ot-sso/pom.xml" />
+        <option value="$PROJECT_DIR$/ot-search/pom.xml" />
+        <option value="$PROJECT_DIR$/ot-courseInfo/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_10" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

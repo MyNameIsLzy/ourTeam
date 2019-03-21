@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ot-common/ot-common.iml" filepath="$PROJECT_DIR$/ot-common/ot-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ot-courseInfo/ot-courseInfo.iml" filepath="$PROJECT_DIR$/ot-courseInfo/ot-courseInfo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ot-manager/ot-manager.iml" filepath="$PROJECT_DIR$/ot-manager/ot-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ot-manager/ot-manager-dao/ot-manager-dao.iml" filepath="$PROJECT_DIR$/ot-manager/ot-manager-dao/ot-manager-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ot-manager/ot-manager-pojo/ot-manager-pojo.iml" filepath="$PROJECT_DIR$/ot-manager/ot-manager-pojo/ot-manager-pojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ot-parent/ot-parent.iml" filepath="$PROJECT_DIR$/ot-parent/ot-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ot-portal/ot-portal.iml" filepath="$PROJECT_DIR$/ot-portal/ot-portal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ot-portal/ot-portal-interface/ot-portal-interface.iml" filepath="$PROJECT_DIR$/ot-portal/ot-portal-interface/ot-portal-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ot-portal/ot-portal-service/ot-portal-service.iml" filepath="$PROJECT_DIR$/ot-portal/ot-portal-service/ot-portal-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ot-portal-web/ot-portal-web.iml" filepath="$PROJECT_DIR$/ot-portal-web/ot-portal-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ot-search/ot-search.iml" filepath="$PROJECT_DIR$/ot-search/ot-search.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ot-search/ot-search-interface/ot-search-interface.iml" filepath="$PROJECT_DIR$/ot-search/ot-search-interface/ot-search-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ot-search/ot-search-service/ot-search-service.iml" filepath="$PROJECT_DIR$/ot-search/ot-search-service/ot-search-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ot-sso/ot-sso.iml" filepath="$PROJECT_DIR$/ot-sso/ot-sso.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ot-sso/ot-sso-interface/ot-sso-interface.iml" filepath="$PROJECT_DIR$/ot-sso/ot-sso-interface/ot-sso-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ot-sso/ot-sso-service/ot-sso-service.iml" filepath="$PROJECT_DIR$/ot-sso/ot-sso-service/ot-sso-service.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ot-search-service:war">
+    <output-path>$PROJECT_DIR$/ot-search/ot-search-service/target</output-path>
+    <root id="archive" name="ot-search.war">
+      <element id="artifact" artifact-name="ot-search-service:war exploded" />
+    </root>
+  </artifact>
+</component>
