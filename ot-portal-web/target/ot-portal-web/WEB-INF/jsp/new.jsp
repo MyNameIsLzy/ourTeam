@@ -70,7 +70,6 @@
         new WOW().init();
     </script>
     <!--//end-animate-->
-
 </head>
 <body>
 
@@ -94,7 +93,7 @@
                         <li><a href="/courses">课程信息</a>
 
                         </li>
-                        <li><a href="contact.html">个人中心</a></li>
+                        <li><a href="#" onclick="gotoPersonal()">个人中心</a></li>
                         <%--设置按钮button的data-toggle:"modal"（以模态框的形式打开），data-target:"#myModal"（设置为modal的id）--%>
                         <li id="loginbar"><a href="#" data-toggle="modal" data-target="#myModal" data-backdrop="static">登录/注册</a></li>
                         <li id="quitbar"></li>
@@ -109,25 +108,37 @@
             <div class="box_1-top">
                 <div class="banner-info wow fadeInLeft animated" data-wow-delay=".5s">
                     <h3></h3>
-                    <form id="searchform" action="/user/search/1" method="post" onSubmit="return submitFn(this, event);">
+                    <!---
+                    onSubmit="return submitFn(this, event)"
+                    action="/user/search/1";
+                    method="post"
+                    -->
+
                         <div class="search-wrapper">
                             <div class="input-holder">
-                                <input type="text" class="search-input" name="search" placeholder="请输入学校名或课程名" />
-                                <button class="search-icon" ><span></span></button>
+                                <input id="search-id"type="text" class="search-input" name="search" placeholder="请输入学校名或课程名" />
+                                <button id="searchButton" class="search-icon"><span></span></button>
                             </div>
                             <!--<span class="close" onClick="searchToggle(this, event);"></span>-->
                             <div class="result-container">
 
                             </div>
                         </div>
-                    </form>
+
                     <!-- <a class="scroll" href="#faculty" class="hvr-shutter-in-vertical button">Meet our faculty</a> -->
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+<script type="text/javascript">
+    $("#searchButton").click(function(){
+        var value = $("#search-id").val();
+        alert(value);
+        localStorage.setItem("searchKey",value);
+        window.location.href="/courses1";
+    });
+</script>
 <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
 <script src="/js/jquery.vide.min.js"></script>
 
@@ -377,7 +388,7 @@
             $.post("/user/login", $("#formlogin").serialize(),function(data){
                 alert(data.status)
                 if (data.status == 200) {
-                    window.location.href="http://10.6.12.126:8082/new";
+                    window.location.href="http://localhost:8082/new";
                 } else {
                     alert("登录失败，原因是：" + data.msg,"失败");
                 }
@@ -551,6 +562,18 @@
         alert(_ticket)
         window.location.href="/user/quitLogin/"+_ticket+"/new";
     };
+</script>
+<script type="text/javascript">
+    function gotoPersonal(){
+        alert("去个人中心");
+        var _ticket = $.cookie("token");
+        if(!_ticket){
+            alert("您还未登陆");
+        }else{
+            var page = "/personal/"+_ticket;
+            window.location.href = page;
+        }
+    }
 </script>
 </body>
 </html>

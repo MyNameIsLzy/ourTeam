@@ -21,7 +21,7 @@
         </javaTypeResolver>
 
         <!-- targetProject:生成PO类的位置，即根据对应的数据库中的表生成对应的javabean的位置 -->
-        <javaModelGenerator targetProject="C:\Users\as648\Desktop\ourTeam\ourTeam\ot-manager\ot-manager-pojo\src\main\java" targetPackage="com.ourTeam.manager.pojo">
+        <javaModelGenerator targetProject="H:\20190309\ourTeam\ot-manager\ot-manager-pojo\src\main\java" targetPackage="com.ourTeam.manager.pojo">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property value="false" name="enableSubPackages"/>
             <!-- 从数据库返回的值被清理前后的空格 -->
@@ -35,18 +35,19 @@
         </sqlMapGenerator>
 
         <!-- targetPackage：java代理生成的位置，即dao生成的位置-->
-        <javaClientGenerator targetProject="C:\Users\as648\Desktop\ourTeam\ourTeam\ot-manager\ot-manager-dao\src\main\java" targetPackage="com.ourTeam.manager.dao" type="XMLMAPPER">
+        <javaClientGenerator targetProject="H:\20190309\ourTeam\ot-manager\ot-manager-dao\src\main\java" targetPackage="com.ourTeam.manager.dao" type="XMLMAPPER">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property value="false" name="enableSubPackages"/>
         </javaClientGenerator>
 
 
         <!--指定数据库表-->
-        <table tableName="course_info" schema=""/>
+        <!--
 
-        <table tableName="sch_course" schema=""/>
-
-
+            <table tableName="course_info" schema=""/>
+            <table tableName="sch_course" schema=""/>
+        -->
+        <table tableName = "user_course" schema=""/>
     </context>
 
 </generatorConfiguration>

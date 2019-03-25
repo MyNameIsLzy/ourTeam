@@ -7,8 +7,8 @@ var E3MALL = {
 			return ;
 		}
 		$.ajax({
-			url : "http://localhost:8082/user/token/" + _ticket,
-			dataType : "jsonp",
+			url : "http://10.6.12.126:8082/user/token/" + _ticket,
+			dataType : "json",
 			type : "GET",
 			success : function(data){
 				if(data.status == 200){

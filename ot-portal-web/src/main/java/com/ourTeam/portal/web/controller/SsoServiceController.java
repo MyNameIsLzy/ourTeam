@@ -47,7 +47,6 @@ public class SsoServiceController {
     @RequestMapping("/user/check/{param}/{type}")
     @ResponseBody
     public CoursesResult ckeckDate(@PathVariable String param,@PathVariable long type){
-        System.out.println("邮箱检查");
         CoursesResult result = userService.checkData(param,type);
         return result;
     }
@@ -56,7 +55,6 @@ public class SsoServiceController {
     @RequestMapping("/user/register")
     @ResponseBody
     public CoursesResult userRegister(User user){
-        System.out.println("--------");
         user.setState(false);
         user.setCode(UUID.randomUUID().toString().replaceAll("-", ""));
         System.out.println(user);
@@ -93,29 +91,40 @@ public class SsoServiceController {
         String location = request.getHeader("Referer");
 
         return "redirect:/"+ page;
-
     }
+
+    //课程详情页的用户注销
+    @RequestMapping("/user/quitLogin2/{tokenId}/{page}/{courseId}")
+    public String userQuitForCourseInfo(@PathVariable String tokenId,@PathVariable String page,@PathVariable long courseId, HttpServletRequest request,HttpServletResponse response)throws Exception {
+        //删除redis里面的用户信息
+        Long result = userService.userQuit(tokenId);
+        Cookie cookie = new Cookie("token",null);
+        cookie.setPath("/");
+        //立马删除
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+        page = page + "/"+courseId;
+        return "redirect:/"+page;
+    }
+
 
     //在所有该项目的页面下面都能通过cookie自动登入，因为大部分页面下面都有这个ajax请求来判断用户是否已经登录，所以要解决不同端口之间数据跨域的问题
     @RequestMapping(value ="/user/token/{tokenId}",produces = "application/json;charset=utf-8")
     @ResponseBody
-    public String userLoginByToken(@PathVariable String tokenId, String callback){
+    public CoursesResult userLoginByToken(@PathVariable String tokenId){
         CoursesResult result = userService.userLoginByToken(tokenId);
         //如果callback不为空，则是一个jsonp请求
-        if(StringUtils.isNotBlank(callback)){
-            return callback+"("+ JsonUtils.objectToJson(result) +");";
-        }
+//        if(StringUtils.isNotBlank(callback)){
+//            return callback+"("+ JsonUtils.objectToJson(result) +");";
+//        }
         //cookie我们采用的实效策略是只要关闭浏览器就实效，所以不需要更新实效时间
-        return JsonUtils.objectToJson(result);
-
-
-
+        return result;
     }
+
     //激活邮件处理
     @RequestMapping("/ActiveServlet")
     public String ActiveServlet(String code, ModelMap modelMap) throws Exception {
         //接收激活码，Spring MVC封装好了
-        System.out.println("----------------------");
         //根据激活码查询用户
         User user = userService.activeUser(code);
         //查询到用户，修改用户的状态

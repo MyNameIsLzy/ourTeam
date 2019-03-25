@@ -70,7 +70,7 @@
                 <li><a class="active" href='/courses'>课程信息</a>
 
                 </li>
-                <li><a href="contact.html">个人中心</a></li>
+                <li><a href="#" onclick="gotoPersonal()">个人中心</a></li>
                 <li id="loginbar"><a href="#" data-toggle="modal" data-target="#myModal">登录/注册</a></li>
                 <li id="quitbar"></li>
             </ul>
@@ -607,6 +607,18 @@
         alert(_ticket)
         window.location.href="/user/quitLogin/"+_ticket+"/courses";
     };
+</script>
+<script type="text/javascript">
+    function gotoPersonal(){
+        alert("去个人中心");
+        var _ticket = $.cookie("token");
+        if(!_ticket){
+           alert("您还未登陆");
+        }else{
+            var page = "/personal/"+_ticket;
+            window.location.href = page;
+        }
+    }
 </script>
 </body>
 </html>

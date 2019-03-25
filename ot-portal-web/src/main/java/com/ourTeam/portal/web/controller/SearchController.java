@@ -7,10 +7,7 @@ import com.ourTeam.search.SearchResult;
 import com.ourTeam.search.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class SearchController {
@@ -37,8 +34,6 @@ public class SearchController {
             search = new String(search.getBytes("iso8859-1"), "utf-8");
             System.out.println(search);
             SearchResult result = searchService.search(search, page, rows);
-            System.out.println(result.getCourseInfoList().size());
-            System.out.println(result.getCourseInfoList().get(9).getCourName());
 
             return CoursesResult.ok(result);
         } catch (Exception e) {

@@ -27,6 +27,18 @@
     <mvc:resources mapping="/video/**" location="/video/"/>
     <mvc:resources mapping="/js/**" location="/js/"/>
     <mvc:resources mapping="/images/**" location="images/"/>
+    <mvc:resources mapping="/courseInfo/css/**" location="/css/"/>
+    <mvc:resources mapping="/courseInfo/fonts/**" location="/fonts/"/>
+    <mvc:resources mapping="/courseInfo/video/**" location="/video/"/>
+    <mvc:resources mapping="/courseInfo/js/**" location="/js/"/>
+    <mvc:resources mapping="/courseInfo/images/**" location="images/"/>
+    <mvc:resources mapping="/personal/css/**" location="/css/"/>
+    <mvc:resources mapping="/personal/fonts/**" location="/fonts/"/>
+    <mvc:resources mapping="/personal/video/**" location="/video/"/>
+    <mvc:resources mapping="/personal/js/**" location="/js/"/>
+    <mvc:resources mapping="/personal/images/**" location="images/"/>
+
+
     <!--注册内部视图解析器-->
     <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -44,6 +56,7 @@
     <!--在注册中心需要询问的内容-->
     <dubbo:reference interface="com.ourTeam.portal.service.CourseService" id="courseService"/>
     <dubbo:reference interface="com.ourTeam.sso.service.UserService" id="userService" timeout="20000"/>
-    <dubbo:reference interface="com.ourTeam.search.SearchService" id="searchService"/>
-
+    <dubbo:reference interface="com.ourTeam.search.SearchService" id="searchService" timeout="20000"/>
+    <dubbo:reference interface="com.ourTeam.courseInfo.CourseInfoService" id="courseInfoService" timeout="20000"/>
+    <dubbo:reference interface="com.ourTeam.userCenter.UserCenterService" id="userCenterService" timeout="2000"/>
 </beans>

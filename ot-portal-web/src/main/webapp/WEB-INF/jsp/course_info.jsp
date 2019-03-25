@@ -1,3 +1,5 @@
+<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -16,6 +18,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- Custom Theme files -->
     <link href="css/nav.css" rel="stylesheet" type="text/css" media="all"/>
     <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link href="css/info.css" rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" href="/css/style-login.css" />
     <link rel="stylesheet" type="text/css" href="/css/animate-custom.css" />
     <link rel="stylesheet" type="text/css" href="/css/jigsaw.css">
@@ -71,8 +74,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                 </li>
-                <li><a href="contact.html">个人中心</a></li>
-                <li><a href="#" data-toggle="modal" data-target="#myModal">登录/注册</a></li>
+                <li><a href="#" onclick="gotoPersonal()">个人中心</a></li>
+                <li id="loginbar"><a href="#" data-toggle="modal" data-target="#myModal" data-backdrop="static">登录/注册</a></li>
+                <li id="quitbar"></li>
             </ul>
         </div>
         <div class="clearfix"></div>
@@ -80,166 +84,184 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!-- //page-head -->
 
-<div class="courses_box1">
-    <div class="container">
-        <div class="col-md-9 detail">
-            <h5>课程详情</h5>
-           <div class="img-cour">
-                <img src="images/g6.jpg" class="img-responsive" alt=""/>
-            </div>
-            <div class="info-cour">
+    <div class="courses_box1">
+        <div class="container" id="content">
+            <div class="col-md-9 detail">
+                <h5>课程详情<span id="login-email" style="display: none"></span></h5>
+                <div class="img-cour">
+                    <img src="images/g6.jpg" class="img-responsive" alt=""/>
+                </div>
+                <div class="info-cour">
 
-                <h3 class="name-cour">Python语言程序设计</h3>
-                <div class="course-enroll-info_course-info">
-                    <div>
-                        <span>课程编号：</span>
-                        <span class="num-cour-info"> 003024</span>
-                    </div>
-                    <div>
-                        <span>开课学校：</span>
-                        <span class="school-cour-info">东南大学 </span>
-                    </div>
-                    <div>
-                        <span>开课时间：</span>
-                        <span class="time-cour-info">1-16周</span>
-                    </div>
-                    <div>
-                        <span>上课老师：</span>
-                        <span class="teacher-cour">徐瑞雪</span>
-                    </div>
-                </div>
-                <div class="stu-name-info">
-                    <div>
-                        <span>已有</span><span class="stu-num-cour-info">100</span><span>人参加</span>
-                    </div>
-                   <div>
-                       <button class="enlist-cour">立即报名</button>
-                   </div>
-                </div>
-            </div>
-            <div class="author-box">
-                <div class="author-box-right">
-                    <span>简 介</span>
-                </div>
-                <div class="intro-cour-box">
-                    <p class="intro-cour">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;计算机是运算工具，更是创新平台，高效有趣地利用计算机需要更简洁实用的编程语言。Python简洁却强大、简单却专业，它是当今世界最受欢迎的编程语言，学好它终身受用。请跟随我们，学习并掌握Python语言，一起动起来，站在风口、享受创新！</p>
-                </div>
-                <div class="clearfix">
-
-                </div>
-            </div>
-            <div class="comment_section">
-                <div class="author-box-right">
-                    <span>课程评价</span>
-                </div>
-                <ul class="comment-list">
-                    <li>
-                        <div class="author-box">
-                            <div class="author-box_left"><img src="images/team2.jpg" class="img-responsive" alt=""/></div>
-                            <div class="author-box_right">
-                                <h5><a href="#">小明</a></h5>
-                                <span class="m_1">Jul 07, 2015 - 4:48 am Nov 15, 2015 - 08:07 pm</span>
-                                <p>这个课程简直太棒了！</p>
-
-                            </div>
-                            <div class="clearfix"> </div>
+                    <h3 class="name-cour">${cour_name}</h3>
+                    <div class="course-enroll-info_course-info">
+                        <div>
+                            <span>课程编号：</span>
+                            <span class="num-cour-info">${cour_code}</span>
+                            <input id="courseId" type="hidden" value="${courseId}">
                         </div>
-                    </li>
-                    <li>
-                        <div class="author-box">
-                            <div class="author-box_left"><img src="images/author.png" class="img-responsive" alt=""/></div>
-                            <div class="author-box_right">
-                                <h5><a href="#">Admin</a><span class="pull-right"><a class="comment-reply-link" href="#">Reply</a></span></h5>
-                                <span class="m_1">Jul 07, 2015 - 4:48 am Nov 15, 2015 - 08:07 pm</span>
-                                <p>There are many variations of passages of Lorem Ipsum</p>
-
-                            </div>
-                            <div class="clearfix"> </div>
+                        <div>
+                            <span>开课学校：</span>
+                            <span class="school-cour-info">${sch_name}</span>
                         </div>
-                    </li>
-                    <ul class="children">
-                        <li>
-                            <div class="author-box">
-                                <div class="author-box_left"><img src="images/author.png" class="img-responsive" alt=""/></div>
-                                <div class="author-box_right">
-                                    <h5><a href="#">Admin</a><span class="pull-right"><a class="comment-reply-link" href="#">Reply</a></span></h5>
-                                    <span class="m_1">Jul 07, 2015 - 4:48 am Nov 15, 2015 - 08:07 pm</span>
-                                    <p>There are many variations of passages of Lorem Ipsum</p>
+                        <div>
+                            <span>上课详情：</span>
+                            <span class="time-cour-info">${cour_info}</span>
+                        </div>
+                        <div>
+                            <span>选课人数：</span>
+                            <span class="time-cour-info"><input id="selectNum" type="hidden" value="${cour_selectNum}">${cour_selectNum}</span>
+                        </div>
+                        <div>
+                            <span>人数限制：</span>
+                            <span class="time-cour-info"><input id="totalNum" type="hidden" value="${cour_totalNum}">${cour_totalNum}</span>
+                        </div>
+                    </div>
+                    <div class="stu-name-info">
+                        <%--<div>--%>
+                        <%--<span>已有</span><span class="stu-num-cour-info">100</span><span>人参加</span><span></span><span class="stu-num-cour-info">100</span><span>人参加</span>--%>
+                        <%--</div>--%>
+                        <div id="joinDiv">
 
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                        </li>
+                        </div>
+                    </div>
+                </div>
+                <div class="author-box">
+                    <div class="author-box-right">
+                        <span>简 介</span>
+                    </div>
+                    <div class="intro-cour-box">
+                        <p class="intro-cour">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${cour_intro}</p>
+                    </div>
+                    <div class="clearfix">
+
+                    </div>
+                </div>
+                <div class="comment_section">
+                    <div class="author-box-right">
+                        <span>课程评价</span>
+                    </div>
+                    <ul class="average-content">
+                        <div id="average-content-score" class="average-content-score">
+                            <span id="avreage-score ">${average_star}</span>
+                        </div>
+                        <ul id="average-content-star"><!--这里是背景，也就是灰色的星星-->
+                            <!--说明，这里的width就是设置分数啦，以我写的为例，一个星星的长度是12px，也就是1分12px，如果是4.3分，就是4.3*12px = 51.6px的长度，当然这个一般是取得数据后用js或者其他模板语言去控制的-->
+                            <div style = "height:27px;width: ${averagr_star_px}px;background:url('/images/star_org.png') no-repeat;background-size:cover;"></div>
+                        </ul>
                     </ul>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="courses_box1-left " >
-                <form>
-                    <div class="select-block1">
-                        <select>
-                            <option value="">学校名称选择</option>
-                            <option value="">东南大学</option>
-                            <option value="">中国科学技术大学</option>
-                            <option value="">南京大学</option>
-                        </select>
-                    </div>
-                    <!-- select-block -->
-                    <div class="select-block1">
-                        <select>
-                            <option value="">院系选择</option>
-                            <%--<option value="">Duration</option>--%>
-                            <%--<option value="">Duration</option>--%>
-                            <%--<option value="">Duration</option>--%>
-                            <%--<option value="">Duration</option>--%>
-                        </select>
-                    </div>
-                    <%--<!-- select-block -->--%>
-                    <%--<div class="select-block1">--%>
-                    <%--<select>--%>
-                    <%--<option value="">Level</option>--%>
-                    <%--<option value="">Level</option>--%>
-                    <%--<option value="">Level</option>--%>
-                    <%--<option value="">Level</option>--%>
-                    <%--<option value="">Level</option>--%>
-                    <%--</select>--%>
-                    <%--</div>--%>
-                    <%--<!-- select-block -->--%>
-                    <%--<div class="select-block1">--%>
-                    <%--<select>--%>
-                    <%--<option value="">Location</option>--%>
-                    <%--<option value="">Location</option>--%>
-                    <%--<option value="">Location</option>--%>
-                    <%--<option value="">Location</option>--%>
-                    <%--<option value="">Location</option>--%>
-                    <%--</select>--%>
-                    <%--</div>--%>
-                    <!-- select-block -->
-                    <input type="submit" value="搜索" class="course-submit">
-                </form>
-            </div>
-            <div class="personBox">
-                <div class="personBox_1">
-                    <div class="person_image">
-                        <img src="images/team1.jpg" class="img-responsive" alt=""/>
-                    </div>
-                    <div class="person_image_desc">
-                        <h6>Lorem Ipsum</h6>
-                        <p>Tempor Incididunt</p>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="person_description">
-                    <p>
-                        On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble <a href="#">More..</a>
-                    </p>
+                    <ul class="comment-list">
+                        <c:forEach items="${userCourses}" var="userCourse">
+                            <li>
+                                <div class="author-box">
+                                    <div class="author-box_left"><img src="images/team2.jpg" class="img-responsive" alt=""/></div>
+                                    <div class="author-box_right">
+                                        <h5><a href="#">${userCourse.userName}</a>
+                                            <div class= "student-star">
+                                                <div style="height:20px; width:${userCourse.courStar}px; background:url('/images/star_org.png') no-repeat; background-size:cover;"></div>
+                                            </div>
+                                        </h5>
+                                        <br/>
+                                            <!--<span class="m_1">Jul 07, 2015 - 4:48 am Nov 15, 2015 - 08:07 pm</span>-->
+                                        <p>${userCourse.courComment}</p>
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div>
+                            </li>
+                            <ul class="children">
+                                <%--<li>--%>
+                                <%--<div class="author-box">--%>
+                                <%--<div class="author-box_left"><img src="images/author.png" class="img-responsive" alt=""/></div>--%>
+                                <%--<div class="author-box_right">--%>
+                                <%--<h5><a href="#">Admin</a><span class="pull-right"><a class="comment-reply-link" href="#">Reply</a></span></h5>--%>
+                                <%--<span class="m_1">Jul 07, 2015 - 4:48 am Nov 15, 2015 - 08:07 pm</span>--%>
+                                <%--<p>There are many variations of passages of Lorem Ipsum</p>--%>
+
+                                <%--</div>--%>
+                                <%--<div class="clearfix"> </div>--%>
+                                <%--</div>--%>
+                                <%--</li>--%>
+                            </ul>
+                        </c:forEach>
+                    </ul>
                 </div>
             </div>
+            <div class="col-md-3">
+                <div class="courses_box1-left " >
+                    <form>
+                        <div class="select-block1">
+                            <select>
+                                <option value="">学校名称选择</option>
+                                <option value="">东南大学</option>
+                                <option value="">中国科学技术大学</option>
+                                <option value="">南京大学</option>
+                            </select>
+                        </div>
+                        <!-- select-block -->
+                        <div class="select-block1">
+                            <select>
+                                <option value="">院系选择</option>
+                                <%--<option value="">Duration</option>--%>
+                                <%--<option value="">Duration</option>--%>
+                                <%--<option value="">Duration</option>--%>
+                                <%--<option value="">Duration</option>--%>
+                            </select>
+                        </div>
+                        <%--<!-- select-block -->--%>
+                        <%--<div class="select-block1">--%>
+                        <%--<select>--%>
+                        <%--<option value="">Level</option>--%>
+                        <%--<option value="">Level</option>--%>
+                        <%--<option value="">Level</option>--%>
+                        <%--<option value="">Level</option>--%>
+                        <%--<option value="">Level</option>--%>
+                        <%--</select>--%>
+                        <%--</div>--%>
+                        <%--<!-- select-block -->--%>
+                        <%--<div class="select-block1">--%>
+                        <%--<select>--%>
+                        <%--<option value="">Location</option>--%>
+                        <%--<option value="">Location</option>--%>
+                        <%--<option value="">Location</option>--%>
+                        <%--<option value="">Location</option>--%>
+                        <%--<option value="">Location</option>--%>
+                        <%--</select>--%>
+                        <%--</div>--%>
+                        <!-- select-block -->
+                        <input type="submit" value="搜索" class="course-submit">
+                    </form>
+                </div>
+                <div class="personBox">
+                    <div class="personBox_1">
+                        <img src="images/southeast.jpg" class="img-responsive" alt=""/>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="person_description">
+                        <div class="person_image_desc">
+                            <h6>授课老师</h6>
+                            <div class="teacher-info">
+                                <div class="teacher-img-cont"><img class="teacher-img" src="images/wuhanqian.png" alt=""></div>
+                                <div class="teacher-name">吴含前</div>
+                                <p class="teacher-prof">副教授</p>
+                            </div>
+                            <div class="teacher-info">
+                                <div class="teacher-img-cont"><img class="teacher-img" src="images/wuhanqian.png" alt=""></div>
+                                <div class="teacher-name">吴含前</div>
+                                <p class="teacher-prof">副教授</p>
+                            </div>
+                            <%--<div class="teacher-info">--%>
+                            <%--<img class="teacher-img" src="images/liwei.jpg" alt="">--%>
+                            <%--<div class="teacher-name">李微</div>--%>
+                            <%--<p class="teacher-prof">副教授</p>--%>
+                            <%--</div>--%>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
         </div>
-        <div class="clearfix"> </div>
     </div>
-</div>
 
 <!--footer-->
 <div class="footer">
@@ -270,6 +292,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 </div>
 <!-- //footer-->
+
+
 <!-- Modal -->
 <!--  定义模态框，过渡效果为淡入，id为myModal,tabindex=-1可以禁用使用tab切换，aria-labelledby用于引用模态框的标题，aria-hidden=true保持模态框在触发前窗口不可见  -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -361,7 +385,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </div>
 </div>
+<%--在点击选课按钮时，判断用户是否已经登录--%>
+<script type="text/javascript">
+    var JUDGE = {
+        //判断用户是否登录
+        selectCourse:function(){
+            //跳转到后台选课
+            var ticket = $.cookie("token");
+            alert(ticket);
+            if(!ticket){
+                var html = "请先登录";
+                alert("请先登录");
+                $("#judge-login-status").html(html);
+            }
+            var courseId = $("#courseId").val();
+            alert(courseId);
+            var selectNum = $("#selectNum").val();
+            alert(selectNum);
+            var totalNum = $("#totalNum").val();
+            alert(totalNum);
+            //如果选课人数小于总人数
+            if(selectNum < totalNum){
+                $.post("/user/selectCourse/"+courseId+"/"+ticket,function(data){
+                    alert(data.status);
+                    if (data.status == 200) {
+                        alert("选课成功");
+                        var page = "/courseInfo/"+$("#courseId").val();
+                        window.location.href= page;
+                    } else {
+                        alert("选课失败，原因是：" + data.msg,"失败");
+                    }
+                });
+            }
 
+        },
+        judge:function(){
+            // 查看是否已经登录，如果已经登录允许用户选课
+            JUDGE.selectCourse();
+        }
+    };
+</script>
 <!-- smooth scrolling -->
 <script type="text/javascript">
     $(document).ready(function() {
@@ -422,7 +485,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             $.post("/user/login", $("#formlogin").serialize(),function(data){
                 alert(data.status)
                 if (data.status == 200) {
-                    window.location.href="http://localhost:8082/new";
+                    var courseId = $("#courseId").val();
+                    window.location.href="http://l0.6.12.126:8082/courseInfo/"+courseId;
                 } else {
                     alert("登录失败，原因是：" + data.msg,"失败");
                 }
@@ -589,5 +653,54 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 <script type="text/javascript" src="/js/e3mall.js"></script>
 <script type="text/javascript" src="/js/jquery.cookie.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var courseIds = $("#courseId").val();
+        alert(courseIds);
+        var ticket = $.cookie("token");
+        alert(ticket);
+        //说明用户没有登录
+        if(!ticket){
+            var html = "<button id='joinButton' class= 'enlist-cour' onclick='JUDGE.judge()'>立即报名</button><span id='judge-login-status'></span>";
+            $("#joinDiv").html(html);
+        } else{
+            //用户登录状态，去判断该用户是否已经选择了这个课
+            alert("ceshi")
+            $.get("/checkStatus/"+courseIds+"/"+ticket,function (data){
+                if(data.status == 200){
+                    //说明该用户选择了这个课
+                    alert("已加入");
+                    var html = "<button id='joinButton' class='enlist-cour1'>已加入</button><span id='judge-login-status'></span>";
+                    $("#joinDiv").html(html);
+                }else{
+                    //用户没有选择这个课
+                    alert("立即报名");
+                    var html = "<button id='joinButton' class= 'enlist-cour' onclick='JUDGE.judge()'>立即报名</button><span id='judge-login-status'></span>";
+                    $("#joinDiv").html(html);
+
+                }
+            });
+        }
+    });
+</script>
+<script type="text/javascript">
+    function quit() {
+        var _ticket = $.cookie("token");
+        var courseId = $("#courseId").val();
+        window.location.href="/user/quitLogin2/"+_ticket+"/courseInfo/"+courseId;
+    };
+</script>
+<script type="text/javascript">
+    function gotoPersonal(){
+        alert("去个人中心");
+        var _ticket = $.cookie("token");
+        if(!_ticket){
+            alert("您还未登陆");
+        }else{
+            var page = "/personal/"+_ticket;
+            window.location.href = page;
+        }
+    }
+</script>
 </body>
 </html>

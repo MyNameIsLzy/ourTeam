@@ -247,13 +247,18 @@
                 $("#ulData li").remove();//移除所有的数据行
                 $.each(data.data.courseInfoList,function(index,row){
                     //alert(news)
-                    $("#ulData").append("<a href='/courseInfo/"+row.id+"'><li class='clearfix'><div class='name_col'>"+row.schName+"</div><div class='name_col'>"+row.courName+"</div><div class='name_col'>"+row.courInfo+"</div></li></a>");  //将返回的数据追加到表格
+                    $("#ulData").append("<a href='javascript:void(0);' onclick= showDetail("+row.id+")><li class='clearfix'><div class='name_col'>"+row.schName+"</div><div class='name_col'>"+row.courName+"</div><div class='name_col'>"+row.courInfo+"</div></li></a>");  //将返回的数据追加到表格
                 });
             }
         });
         return total;
     }
+    function showDetail(id) {
+        alert("触发");
+        window.location.href = "/courseInfo/"+id;
+    }
 </script>
+
 <!-- courses -->
 <!--footer-->
 <div class="footer">
@@ -265,10 +270,10 @@
         <div class="col-md-2 footer-grid wow fadeInRight animated" data-wow-delay=".5s">
             <h3>导航</h3>
             <ul>
-                <li><a href="new">主页</a></li>
-                <li><a class="active" href="school">学校简介</a></li>
-                <li><a href="courses.html">课程信息</a></li>
-                <li><a href="contact.html">个人中心</a></li>
+                <li><a href="/new">主页</a></li>
+                <li><a class="active" href="/school">学校简介</a></li>
+                <li><a href="/courses">课程信息</a></li>
+                <li><a href="#" onclick="gotoPersonal()">个人中心</a></li>
             </ul>
         </div>
         <div class="col-md-3 footer-grid wow fadeInLeft animated" data-wow-delay=".5s">
@@ -435,7 +440,7 @@
             $.post("/user/login", $("#formlogin").serialize(),function(data){
                 alert(data.status)
                 if (data.status == 200) {
-                    window.location.href="http://localhost:8082/courses";
+                    window.location.href="http://10.6.12.126:8082/courseInfo/2";
                 } else {
                     alert("登录失败，原因是：" + data.msg,"失败");
                 }
@@ -609,5 +614,18 @@
         window.location.href="/user/quitLogin/"+_ticket+"/courses";
     };
 </script>
+<script type="text/javascript">
+    function gotoPersonal(){
+        alert("去个人中心");
+        var _ticket = $.cookie("token");
+        if(!_ticket){
+            alert("您还未登陆");
+        }else{
+            var page = "/personal/"+_ticket;
+            window.location.href = page;
+        }
+    }
+</script>
 </body>
+
 </html>

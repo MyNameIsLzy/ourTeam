@@ -93,10 +93,10 @@
             <ul id="headerUI" class="nav">
                 <li><a href="new">主页</a></li>
                 <li><a class="active" href="school">学校简介</a></li>
-                <li><a href="courses">课程信息</a>
+                <li><a href="/courses" >课程信息</a>
 
                 </li>
-                <li><a href="contact.html">个人中心</a></li>
+                <li><a href="#" onclick="gotoPersonal()">个人中心</a></li>
                 <%--设置按钮button的data-toggle:"modal"（以模态框的形式打开），data-target:"#myModal"（设置为modal的id）--%>
                 <li id="loginbar"><a href="#" data-toggle="modal" data-target="#myModal" data-backdrop="static">登录/注册</a></li>
                 <li id="quitbar"></li>
@@ -497,7 +497,7 @@
             $.post("/user/login", $("#formlogin").serialize(),function(data){
                 alert(data.status)
                 if (data.status == 200) {
-                    window.location.href="http://localhost:8082/school";
+                    window.location.href="http://10.6.12.126:8082/school";
                 } else {
                     alert("登录失败，原因是：" + data.msg,"失败");
                 }
@@ -670,6 +670,18 @@
         alert(_ticket)
         window.location.href="/user/quitLogin/"+_ticket+"/school";
     };
+</script>
+<script type="text/javascript">
+    function gotoPersonal(){
+        alert("去个人中心");
+        var _ticket = $.cookie("token");
+        if(!_ticket){
+            alert("您还未登陆");
+        }else{
+            var page = "/personal/"+_ticket;
+            window.location.href = page;
+        }
+    }
 </script>
 </body>
 </html>
